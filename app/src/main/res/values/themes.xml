@@ -1,0 +1,23 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SustainStep" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.SustainStep" parent="Base.Theme.SustainStep">
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+    <style name="HistoryPeriodChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:paddingEnd">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+</resources>

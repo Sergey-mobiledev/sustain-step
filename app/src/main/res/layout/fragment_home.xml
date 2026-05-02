@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_f8"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/home_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/homeSummaryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/back_white_r_18"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeOverviewTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/home_today_overview"
+                    android:textColor="@color/orange"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeOverviewSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="24sp"
+                    tools:text="4,230 / 7,000 steps" />
+
+                <ProgressBar
+                    android:id="@+id/homeOverviewProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/back_progress_drawable"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progress_drawable" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/homeOverviewDistance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/open_sans_medium"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="13sp"
+                        tools:text="Distance: ~3.2 km" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/homeOverviewCalories"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/open_sans_medium"
+                        android:gravity="end"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="13sp"
+                        tools:text="Calories: ~169 kcal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeOverviewHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="13sp"
+                    tools:text="2,770 steps left today" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/button_grant_permission"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_orange_r_24"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/grant_activity_permission"
+                        android:textColor="@color/white_f8"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/button_change_goal"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_orange_r_24"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/change_goal"
+                        android:textColor="@color/white_f8"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/button_home_history"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_white_r_24"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="@string/view_history"
+                        android:textColor="@color/orange"
+                        android:textSize="15sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/homeInsightsCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/back_white_r_18"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/home_insights_title"
+                    android:textColor="@color/orange"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeInsightPace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeInsightActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeInsightEco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="13sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <FrameLayout
+                android:id="@+id/card_eco_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/back_orange_r_18"
+                android:clipChildren="false"
+                android:elevation="8dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/open_sans_bold"
+                                android:text="@string/eco_task_title"
+                                android:textColor="@color/white_f8"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:text="@string/eco_task_subtitle"
+                                android:textColor="@color/white_f8"
+                                android:textSize="13sp" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="78dp"
+                            android:layout_height="78dp"
+                            android:layout_marginStart="14dp"
+                            android:alpha="0.95"
+                            android:src="@drawable/img_task" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <FrameLayout
+                        android:id="@+id/eco_task_text_host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/back_white_r_18"
+                        android:clipChildren="true"
+                        android:clipToPadding="true"
+                        android:padding="14dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/current_eco_task"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center_vertical"
+                            android:maxLines="6"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text=""
+                            android:textColor="@color/black_text_color"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:id="@+id/eco_task_placeholder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/eco_task_placeholder_bg"
+                            android:minHeight="22dp"
+                            android:visibility="gone">
+
+                            <View
+                                android:id="@+id/eco_task_shimmer"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/eco_shimmer_wave" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/open_sans_medium"
+                        android:text="@string/eco_task_hint"
+                        android:textColor="@color/white_f8"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/button_skip"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_white_r_24"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:text="@string/skip"
+                            android:textColor="@color/orange"
+                            android:textSize="16sp" />
+
+                        <FrameLayout
+                            android:id="@+id/button_done"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_white_r_24"
+                            android:clipChildren="false"
+                            android:clipToPadding="false">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/done_label"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/open_sans_bold"
+                                android:gravity="center"
+                                android:text="@string/done"
+                                android:textColor="@color/orange"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/done_bird"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:elevation="6dp"
+                                android:src="@drawable/ic_check_green_20"
+                                android:visibility="gone" />
+                        </FrameLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </FrameLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/homeAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_f8"
+        android:clipToPadding="false"
+        android:elevation="10dp"
+        android:outlineProvider="bounds"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/home_scroll">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/homeCollapsing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            app:contentScrim="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@android:color/transparent"
+            app:titleEnabled="false">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="64dp"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.45">
+
+                <View
+                    android:id="@+id/homeHeaderScrim"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:alpha="0"
+                    android:background="@drawable/top_status_scrim" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeLargeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/home"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="32sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/homeHeaderToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="top"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_collapseMode="pin">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/homeMenuButton"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/sel_b_menu"
+                    android:elevation="10dp"
+                    android:layout_marginStart="20dp"
+                    android:padding="9dp"
+                    android:src="@drawable/icon_menu" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/homeCompactTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:alpha="0"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/home"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="20sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:id="@+id/homeAppBarDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0"
+        android:background="#14000000"
+        android:importantForAccessibility="no"
+        app:layout_anchor="@id/homeAppBar"
+        app:layout_anchorGravity="bottom" />
+
+    <View
+        android:id="@+id/bottom_content_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottom_content_scrim"
+        android:clickable="false"
+        android:focusable="false" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
